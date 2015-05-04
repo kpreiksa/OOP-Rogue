@@ -17,6 +17,11 @@
 #include <string.h>
 #include "rogue.h"
 
+int whatis();
+void create_obj();
+int teleport();
+int passwd();
+
 /*
  * whatis:
  *	What a certin object is

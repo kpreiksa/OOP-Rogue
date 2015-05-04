@@ -17,6 +17,15 @@
 
 #define NONE 100
 
+int missile(int, int);
+void do_motion(struct object*, int, int);
+int fall(struct linked_list*, bool);
+void init_weapon(struct object*, char);
+int hit_monster(int, int, struct object*);
+char* num(int, int);
+int wield();
+int fallpos(coord*, coord*, bool);
+
 char *w_names[MAXWEAPONS] = {
     "mace",
     "long sword",
