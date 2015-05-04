@@ -18,7 +18,7 @@
  *	Draw all the passages on a level.
  */
 
-do_passages()
+void do_passages()
 {
     struct rdes *r1, *r2;
     int i, j;
@@ -126,8 +126,7 @@ do_passages()
  *	Draw a corridor from a room in a certain direction.
  */
 
-conn(r1, r2)
-int r1, r2;
+void conn(int r1, int r2)
 {
     struct room *rpf, *rpt;
     char rmt;
@@ -262,9 +261,7 @@ int r1, r2;
  * also enters the door in the exits array of the room.
  */
 
-door(rm, cp)
-struct room *rm;
-coord *cp;
+void door(struct room* rm, coord* cp)
 {
     cmov(*cp);
     addch( (rnd(10) < level - 1 && rnd(100) < 20 ? SECRETDOOR : DOOR) );
@@ -276,7 +273,7 @@ coord *cp;
  *	add the passages to the current window (wizard command)
  */
 
-add_pass()
+void add_pass()
 {
     int y, x, ch;
 

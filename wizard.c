@@ -22,7 +22,7 @@
  *	What a certin object is
  */
 
-whatis()
+int whatis()
 {
     struct object *obj;
     struct linked_list *item;
@@ -74,7 +74,7 @@ whatis()
  *	Wizard command for getting anything he wants
  */
 
-create_obj()
+void create_obj()
 {
     struct linked_list *item;
     struct object *obj;
@@ -140,7 +140,7 @@ create_obj()
  *	Bamf the hero someplace else
  */
 
-teleport()
+int teleport()
 {
     int rm;
     coord c;
@@ -175,7 +175,7 @@ teleport()
  *	see if user knows password
  */
 
-passwd()
+int passwd()
 {
     char *sp, c;
     char buf[80], *xcrypt();

@@ -15,7 +15,7 @@
 #include <string.h>
 #include "rogue.h"
 
-ring_on()
+int ring_on()
 {
     struct object *obj;
     struct linked_list *item;
@@ -103,7 +103,7 @@ ring_on()
     }
 }
 
-ring_off()
+int ring_off()
 {
     int ring;
     struct object *obj;
@@ -134,7 +134,7 @@ ring_off()
 	msg("Was wearing %s", inv_name(obj, TRUE));
 }
 
-gethand()
+int gethand()
 {
     int c;
 
@@ -161,8 +161,7 @@ gethand()
 /*
  * how much food does this ring use up?
  */
-ring_eat(hand)
-int hand;
+int ring_eat(int hand)
 {
     if (cur_ring[hand] == NULL)
 	return 0;
@@ -184,9 +183,7 @@ int hand;
 /*
  * print ring bonuses
  */
-char *
-ring_num(obj)
-struct object *obj;
+char* ring_num(struct object* obj)
 {
     static char buf[5];
 

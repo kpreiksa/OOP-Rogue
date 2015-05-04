@@ -17,7 +17,7 @@
 #include <string.h>
 #include "rogue.h"
 
-read_scroll()
+int read_scroll()
 {
     struct object *obj;
     struct linked_list *item;

@@ -27,7 +27,7 @@ extern char version[], encstr[];
 
 STAT sbuf;
 
-save_game()
+int save_game()
 {
     FILE *savef;
     int c;
@@ -84,8 +84,7 @@ gotfile:
  * automatically save a file.  This is used if a HUP signal is
  * recieved
  */
-void
-auto_save(int p)
+void auto_save(int p)
 {
     FILE *savef;
     int i;
@@ -101,8 +100,7 @@ auto_save(int p)
 /*
  * write the saved game on the file
  */
-save_file(savef)
-FILE *savef;
+int save_file(FILE* savef)
 {
     char buf[80];
     int ret;
@@ -128,9 +126,7 @@ FILE *savef;
     return(ret);
 }
 
-restore(file, envp)
-char *file;
-char **envp;
+int restore(char* file,char** envp)
 {
     int inf;
     extern char **environ;
@@ -227,10 +223,7 @@ char **envp;
 /*
  * perform an encrypted write
  */
-encwrite(starta, size, outf)
-void *starta;
-unsigned int size;
-FILE *outf;
+int encwrite(void* starta,unsigned int size, FILE* outf)
 {
     char *ep;
     char *start = starta;
@@ -252,10 +245,7 @@ FILE *outf;
 /*
  * perform an encrypted read
  */
-encread(starta, size, inf)
-void *starta;
-unsigned int size;
-int inf;
+encread(void* starta, unsigned int size, int inf)
 {
     char *ep;
     int read_size;
