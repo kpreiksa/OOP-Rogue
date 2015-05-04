@@ -71,8 +71,44 @@ char *strdup(const char *s);
 
 #define MOD_MOVE(c) (toupper(c) )
 
-void
-md_init()
+void md_init();
+int md_hasclreol();
+void md_putchar(int c);
+void md_raw_standout();
+void md_raw_standend();
+int md_unlink_open_file(char *file, int inf);
+int md_unlink(char *file);
+int md_creat(char *file, int mode);
+void md_normaluser();
+int md_getuid();
+char* md_getusername(int uid);
+char* md_gethomedir();
+void md_sleep(int s);
+char* md_getshell();
+int md_shellescape();
+int directory_exists(char *dirname);
+char* md_getroguedir();
+char* md_getrealname(int uid);
+char* md_crypt(char *key, char *salt);
+char* md_getpass(char *prompt);
+unsigned long int md_ntohl(unsigned long int x);
+unsigned long int md_htonl(unsigned long int x);
+int md_getloadavg(double *avg);
+long md_random();
+void md_srandom(unsigned x);
+int md_rand();
+void md_srand(int seed);
+char* md_strdup(const char *s);
+long md_memused();
+char* md_gethostname();
+int md_erasechar();
+int md_killchar();
+char* md_unctrl(char ch);
+void md_flushinp();
+int md_readchar(WINDOW *win);
+
+
+void md_init()
 {
 #ifdef __INTERIX
     char *term;

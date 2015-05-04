@@ -13,6 +13,15 @@
 #include "curses.h"
 #include "rogue.h"
 
+void doctor();
+void swander();
+void rollwand();
+void unconfuse();
+void unsee();
+void sight();
+void nohaste();
+void stomach();
+
 /*
  * doctor:
  *	A healing daemon that restors hit points after rest

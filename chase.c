@@ -15,6 +15,15 @@
 
 coord ch_ret;				/* Where chasing takes you */
 
+void runners();
+int do_chase(struct thing* th);
+void runto(coord* runner, coord* spot);
+int chase(struct thing* tp, coord* ee);
+struct room* roomin(ccord *cp);
+struct linked_list* find_mons(int y, int x);
+void diag_ok(coord* sp, coord* ep);
+void cansee(int y, int x);
+
 /*
  * runners:
  *	Make all the running monsters move.

@@ -32,7 +32,13 @@ struct optstruct {
 
 typedef struct optstruct	OPTION;
 
-int	put_bool(), get_bool(), put_str(), get_str();
+void strucpy();
+void parse_opts(char* str);
+int get_str(char* opt, WINDOW* win);
+int get_bool(bool* bp, WINDOW* win);
+void put_str(char* str);
+void put_bool(bool* b);
+void option();
 
 OPTION	optlist[] = {
     {"terse",	 "Terse output: ",
@@ -124,7 +130,7 @@ void put_str(char* str)
  * allow changing a boolean option and print it out
  */
 
-get_bool(bool* bp, WINDOW* win)
+int get_bool(bool* bp, WINDOW* win)
 {
     int oy, ox;
     bool op_bad;
