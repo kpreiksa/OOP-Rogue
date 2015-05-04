@@ -69,6 +69,14 @@ int seed;                                /* Random number seed */
 
 struct trap  traps[MAXTRAPS];
 
+void init_player();
+void init_things();
+void init_colors();
+void init_names();
+void init_stones();
+void init_materials();
+void badcheck(char *name, struct magic_item* magic, int bound);
+
 
 #define ___ 1
 #define _x {1,1}

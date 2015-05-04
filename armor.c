@@ -17,6 +17,9 @@
  * wear:
  *	The player wants to wear something, so let him/her put it on.
  */
+void wear();
+void take_off();
+void waste_time();
 
 void wear()
 {

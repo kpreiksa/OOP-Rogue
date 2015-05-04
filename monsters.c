@@ -21,6 +21,12 @@
 char lvl_mons[27] =  "KJBSHEAOZGLCRQNYTWFIXUMVDP";
 char wand_mons[27] = "KJBSH AOZG CRQ Y W IXU V  ";
 
+char randmonster(bool wander);
+void new_monster(struct linked_list* item, char type, coord* cp);
+void wanderer();
+struct linked_list* wake_monster(int y, int x);
+return genocide();
+
 /*
  * randmonster:
  *	Pick a monster to show up.  The lower the level,

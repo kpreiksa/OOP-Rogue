@@ -20,6 +20,14 @@
 
 coord nh;
 
+void do_run(char ch);
+void do_move(int dy, int dx);
+void light(coord* cp);
+char show(int y, int x);
+char be_trapped(coord* tc);
+struct trap* trap_at(int y, int x);
+coord* rndmove(struct thing* who);
+
 /*
  * do_run:
  *	Start the hero running

@@ -16,6 +16,10 @@
 
 #include <string.h>
 
+void new_level();
+int rnd_room();
+void put_things();
+
 void new_level()
 {
     int rm, i;
