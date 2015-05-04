@@ -24,11 +24,7 @@ long e_levels[] = {
  *	The player attacks the monster.
  */
 
-fight(mp, mn, weap, thrown)
-coord *mp;
-char mn;
-struct object *weap;
-bool thrown;
+bool fight(coord *mp, char mn, struct object* weap, bool thrown)
 {
     struct thing *tp;
     struct linked_list *item;
@@ -99,8 +95,7 @@ bool thrown;
  *	The monster attacks the player
  */
 
-attack(mp)
-struct thing *mp;
+int attack(struct thing *mp)
 {
     char *mname;
 
@@ -304,8 +299,7 @@ struct thing *mp;
  *	returns true if the swing hits
  */
 
-swing(at_lvl, op_arm, wplus)
-int at_lvl, op_arm, wplus;
+int swing(int at_lvl, int op_arm, int wplus)
 {
     int res = rnd(20)+1;
     int need = (21-at_lvl)-op_arm;
@@ -318,7 +312,7 @@ int at_lvl, op_arm, wplus;
  *	Check to see if the guy has gone up a level.
  */
 
-check_level()
+void check_level()
 {
     int i, add;
 
@@ -342,10 +336,7 @@ check_level()
  *	Roll several attacks
  */
 
-roll_em(att, def, weap, hurl)
-struct stats *att, *def;
-struct object *weap;
-bool hurl;
+bool roll_em(struct stats* att, struct stats* def, struct object* weap, bool hurl)
 {
     char *cp;
     int ndice, nsides, def_arm;
@@ -435,10 +426,7 @@ bool hurl;
  *	The print name of a combatant
  */
 
-char *
-prname(who, upper)
-char *who;
-bool upper;
+char* prname(char *who, bool upper)
 {
     static char tbuf[80];
 
@@ -462,8 +450,7 @@ bool upper;
  *	Print a message to indicate a succesful hit
  */
 
-hit(er, ee)
-char *er, *ee;
+void hit(char *er, char *ee)
 {
     char *s;
 
@@ -489,8 +476,7 @@ char *er, *ee;
  *	Print a message to indicate a poor swing
  */
 
-miss(er, ee)
-char *er, *ee;
+void miss(char *er, char *ee)
 {
     char *s;
 
@@ -512,9 +498,7 @@ char *er, *ee;
  * save_throw:
  *	See if a creature save against something
  */
-save_throw(which, tp)
-int which;
-struct thing *tp;
+void save_throw(int which, struct thing* tp)
 {
     int need;
 
@@ -527,8 +511,7 @@ struct thing *tp;
  *	See if he saves against various nasty things
  */
 
-save(which)
-int which;
+void save(int which)
 {
     return save_throw(which, &player);
 }
@@ -538,8 +521,7 @@ int which;
  *	compute bonus/penalties for strength on the "to hit" roll
  */
 
-str_plus(str)
-str_t *str;
+int str_plus(str_t *str)
 {
     if (str->st_str == 18)
     {
@@ -560,9 +542,8 @@ str_t *str;
  *	compute additional damage done for exceptionally high or low strength
  */
 
- add_dam(str)
- str_t *str;
- {
+int add_dam(str_t *str)
+{
     if (str->st_str == 18)
     {
 	if (str->st_add == 100)
@@ -587,7 +568,7 @@ str_t *str;
  *	The guy just magically went up a level.
  */
 
-raise_level()
+void raise_level()
 {
     pstats.s_exp = e_levels[pstats.s_lvl-1] + 1L;
     check_level();
@@ -598,9 +579,7 @@ raise_level()
  *	A missile hits a monster
  */
 
-thunk(weap, mname)
-struct object *weap;
-char *mname;
+void thunk(struct object* weap, char *mname)
 {
     if (weap->o_type == WEAPON)
 	msg("The %s hits the %s", w_names[weap->o_which], mname);
@@ -613,9 +592,7 @@ char *mname;
  *	A missile misses a monster
  */
 
-bounce(weap, mname)
-struct object *weap;
-char *mname;
+void bounce(struct object* weap, char *mname)
 {
     if (weap->o_type == WEAPON)
 	msg("The %s misses the %s", w_names[weap->o_which], mname);
@@ -626,9 +603,7 @@ char *mname;
 /*
  * remove a monster from the screen
  */
-remove_monster(mp, item)
-coord *mp;
-struct linked_list *item;
+void remove_monster(coord *mp, struct linked_list* item)
 {
     mvwaddch(mw, mp->y, mp->x, ' ');
     mvwaddch(cw, mp->y, mp->x, ((struct thing *) ldata(item))->t_oldch);
@@ -641,8 +616,7 @@ struct linked_list *item;
  *	Returns true if an object radiates magic
  */
 
-is_magic(obj)
-struct object *obj;
+void is_magic(struct object* obj)
 {
     switch (obj->o_type)
     {
@@ -665,9 +639,7 @@ struct object *obj;
  *	Called to put a monster to death
  */
 
-killed(item, pr)
-struct linked_list *item;
-bool pr;
+void killed(struct linked_list* item, bool pr)
 {
     struct thing *tp;
     struct linked_list *pitem, *nexti;

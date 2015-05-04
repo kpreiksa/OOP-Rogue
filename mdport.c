@@ -90,8 +90,7 @@ md_init()
 #endif
 }
 
-int
-md_hasclreol()
+int md_hasclreol()
 {
 #ifdef CE
     return((CE != NULL) && (*CE != 0));
@@ -104,16 +103,14 @@ md_hasclreol()
 #endif
 }
 
-void
-md_putchar(int c)
+void md_putchar(int c)
 {
     putchar(c);
 }
 
 static int md_standout_mode = 0;
 
-void
-md_raw_standout()
+void md_raw_standout()
 {
 #ifdef _WIN32
     CONSOLE_SCREEN_BUFFER_INFO csbiInfo; 
@@ -135,8 +132,7 @@ md_raw_standout()
 #endif
 }
 
-void
-md_raw_standend()
+void md_raw_standend()
 {
 #ifdef _WIN32
     CONSOLE_SCREEN_BUFFER_INFO csbiInfo; 
@@ -158,8 +154,7 @@ md_raw_standend()
 #endif
 }
 
-int
-md_unlink_open_file(char *file, int inf)
+int md_unlink_open_file(char *file, int inf)
 {
 #ifdef _WIN32
     _close(inf);
@@ -170,8 +165,7 @@ md_unlink_open_file(char *file, int inf)
 #endif
 }
 
-int
-md_unlink(char *file)
+int md_unlink(char *file)
 {
 #ifdef _WIN32
     _chmod(file, 0600);
@@ -181,8 +175,7 @@ md_unlink(char *file)
 #endif
 }
 
-int
-md_creat(char *file, int mode)
+int md_creat(char *file, int mode)
 {
     int fd;
 #ifdef _WIN32
@@ -196,8 +189,7 @@ md_creat(char *file, int mode)
 }
 
 
-void
-md_normaluser()
+void md_normaluser()
 {
 #ifndef _WIN32
     setuid(getuid());
@@ -205,8 +197,7 @@ md_normaluser()
 #endif
 }
 
-int
-md_getuid()
+int md_getuid()
 {
 #ifndef _WIN32
     return( getuid() );
@@ -215,8 +206,7 @@ md_getuid()
 #endif
 }
 
-char *
-md_getusername(int uid)
+char* md_getusername(int uid)
 {
     static char login[80];
     char *l = NULL;
@@ -252,8 +242,7 @@ md_getusername(int uid)
     return(login);
 }
 
-char *
-md_gethomedir()
+char* md_gethomedir()
 {
     static char homedir[PATH_MAX];
     char *h = NULL;
@@ -292,8 +281,7 @@ md_gethomedir()
     return(homedir);
 }
 
-void
-md_sleep(int s)
+void md_sleep(int s)
 {
 #ifdef _WIN32
     Sleep(s);
@@ -302,8 +290,7 @@ md_sleep(int s)
 #endif
 }
 
-char *
-md_getshell()
+char* md_getshell()
 {
     static char shell[PATH_MAX];
     char *s = NULL;
@@ -329,8 +316,7 @@ md_getshell()
     return(shell);
 }
 
-int
-md_shellescape()
+int md_shellescape()
 {
 #if (!defined(_WIN32) && !defined(__DJGPP__))
     int ret_status;
@@ -380,8 +366,7 @@ md_shellescape()
 #endif
 }
 
-int
-directory_exists(char *dirname)
+int directory_exists(char *dirname)
 {
     struct stat sb;
 
@@ -391,8 +376,7 @@ directory_exists(char *dirname)
     return(0);
 }
 
-char *
-md_getroguedir()
+char* md_getroguedir()
 {
     static char path[1024];
     char *end,*home;
@@ -428,8 +412,7 @@ md_getroguedir()
     return("");
 }
 
-char *
-md_getrealname(int uid)
+char* md_getrealname(int uid)
 {
     static char uidstr[20];
 #if !defined(_WIN32) && !defined(DJGPP)
@@ -450,14 +433,12 @@ md_getrealname(int uid)
 
 extern char *xcrypt(char *key, char *salt);
 
-char *
-md_crypt(char *key, char *salt)
+char* md_crypt(char *key, char *salt)
 {
     return( xcrypt(key,salt) );
 }
 
-char *
-md_getpass(char *prompt)
+char* md_getpass(char *prompt)
 {
 #ifdef _WIN32
     static char password_buffer[9];
@@ -519,8 +500,7 @@ md_getpass(char *prompt)
 
 int md_endian = 0x01020304;
 
-unsigned long int
-md_ntohl(unsigned long int x)
+unsigned long int md_ntohl(unsigned long int x)
 {
 #ifdef _WIN32
     if ( *((char *)&md_endian) == 0x01 )
@@ -535,8 +515,7 @@ md_ntohl(unsigned long int x)
 #endif
 }
 
-unsigned long int
-md_htonl(unsigned long int x)
+unsigned long int md_htonl(unsigned long int x)
 {
 #ifdef _WIN32
     if ( *((char *)&md_endian) == 0x01 )
@@ -551,8 +530,7 @@ md_htonl(unsigned long int x)
 #endif
 }
 
-int
-md_ucount()
+int md_ucount()
 {
 #ifdef __DJGPP__
     return(1);
@@ -576,8 +554,7 @@ md_ucount()
 #endif
 }
 
-int
-md_getloadavg(double *avg)
+int md_getloadavg(double *avg)
 {
 #if defined(__GLIBC__) || defined(_BSD)
     if (getloadavg(avg, 3) == -1)
@@ -588,8 +565,7 @@ md_getloadavg(double *avg)
     }
 }
 
-long
-md_random()
+long md_random()
 {
 #ifdef _WIN32
     return(rand());
@@ -598,8 +574,7 @@ md_random()
 #endif
 }
 
-void
-md_srandom(unsigned x)
+void md_srandom(unsigned x)
 {
 #ifdef _WIN32
     srand(x);
@@ -608,8 +583,7 @@ md_srandom(unsigned x)
 #endif
 }
 
-int
-md_rand()
+int md_rand()
 {
 #ifdef _WIN32
     return(rand());
@@ -618,8 +592,7 @@ md_rand()
 #endif
 }
 
-void
-md_srand(int seed)
+void md_srand(int seed)
 {
 #ifdef _WIN32
     srand(seed);
@@ -628,8 +601,7 @@ md_srand(int seed)
 #endif
 }
 
-char *
-md_strdup(const char *s)
+char* md_strdup(const char *s)
 {
 #ifdef _WIN32
     return( _strdup(s) );
@@ -638,8 +610,7 @@ md_strdup(const char *s)
 #endif
 }
 
-long
-md_memused()
+long md_memused()
 {
 #ifdef _WIN32
     MEMORYSTATUS stat;
@@ -652,8 +623,7 @@ md_memused()
 #endif
 }
 
-char *
-md_gethostname()
+char* md_gethostname()
 {
     static char nodename[80];
     char *n = NULL;
@@ -674,8 +644,7 @@ md_gethostname()
     return(nodename);
 }
 
-int
-md_erasechar()
+int md_erasechar()
 {
 #ifdef BSD
     return(_tty.sg_erase); /* process erase character */
@@ -686,8 +655,7 @@ md_erasechar()
 #endif
 }
 
-int
-md_killchar()
+int md_killchar()
 {
 #ifdef BSD
     return(_tty.sg_kill);
@@ -703,8 +671,7 @@ md_killchar()
  *	Print a readable version of a certain character
  */
 
-char *
-md_unctrl(char ch)
+char* md_unctrl(char ch)
 {
 #if USG5_0
     extern char *_unctrl[];		/* Defined in curses library */
@@ -715,8 +682,7 @@ md_unctrl(char ch)
 #endif
 }
 
-void
-md_flushinp()
+void md_flushinp()
 {
 #ifdef BSD
     ioctl(0, TIOCFLUSH);
@@ -1013,8 +979,7 @@ md_flushinp()
 #define M_KEYPAD 2
 #define M_TRAIL  3
 
-int
-md_readchar(WINDOW *win)
+int md_readchar(WINDOW *win)
 {
     int ch = 0;
     int lastch = 0;
