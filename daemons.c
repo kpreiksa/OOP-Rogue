@@ -18,9 +18,9 @@
  *	A healing daemon that restors hit points after rest
  */
 
-doctor()
+void doctor()
 {
-     int lv, ohp;
+    int lv, ohp;
 
     lv = pstats.s_lvl;
     ohp = pstats.s_hpt;
@@ -50,7 +50,7 @@ doctor()
  *	Called when it is time to start rolling for wandering monsters
  */
 
-swander()
+void swander()
 {
     start_daemon(rollwand, 0, BEFORE);
 }
@@ -62,7 +62,7 @@ swander()
 
 int between = 0;
 
-rollwand()
+void rollwand()
 {
     if (++between >= 4)
     {
@@ -81,7 +81,7 @@ rollwand()
  *	Release the poor player from his confusion
  */
 
-unconfuse()
+void unconfuse()
 {
     player.t_flags &= ~ISHUH;
     msg("You feel less confused now");
@@ -93,7 +93,7 @@ unconfuse()
  *	He lost his see invisible power
  */
 
-unsee()
+void unsee()
 {
     player.t_flags &= ~CANSEE;
 }
@@ -103,7 +103,7 @@ unsee()
  *	He gets his sight back
  */
 
-sight()
+void sight()
 {
     if (on(player, ISBLIND))
     {
@@ -119,7 +119,7 @@ sight()
  *	End the hasting
  */
 
-nohaste()
+void nohaste()
 {
     player.t_flags &= ~ISHASTE;
     msg("You feel yourself slowing down.");
@@ -128,9 +128,9 @@ nohaste()
 /*
  * digest the hero's food
  */
-stomach()
+void stomach()
 {
-     int oldfood;
+    int oldfood;
 
     if (food_left <= 0)
     {

@@ -19,9 +19,7 @@
  *	print the name of a trap
  */
 
-char *
-tr_name(ch)
-char ch;
+char* tr_name(char ch)
 {
     char *s;
 
@@ -48,8 +46,7 @@ char ch;
  *	A quick glance all around the player
  */
 
-look(wakeup)
-bool wakeup;
+void look(bool wakeup)
 {
     int x, y;
     char ch;
@@ -173,8 +170,7 @@ bool wakeup;
  *	Figure out what a secret door looks like.
  */
 
-secretdoor(y, x)
-int y, x;
+char secretdoor(int y, int x)
 {
     int i;
     struct room *rp;
@@ -199,10 +195,7 @@ int y, x;
  *	find the unclaimed object at y, x
  */
 
-struct linked_list *
-find_obj(y, x)
-int y;
-int x;
+struct linked_list * find_obj(int y, int x)
 {
     struct linked_list *obj;
     struct object *op;
@@ -223,7 +216,7 @@ int x;
  *	She wants to eat something, so let her try
  */
 
-eat()
+void eat()
 {
     struct linked_list *item;
     struct object *obj;
@@ -268,8 +261,7 @@ eat()
  * it keeps track of the highest it has been, just in case
  */
 
-chg_str(amt)
-int amt;
+void chg_str(int amt)
 {
     if (amt == 0)
 	return;
@@ -322,8 +314,7 @@ int amt;
  *	add a haste to the player
  */
 
-add_haste(potion)
-bool potion;
+void add_haste(bool potion)
 {
     if (on(player, ISHASTE))
     {
@@ -344,7 +335,7 @@ bool potion;
  *	aggravate all the monsters on this level
  */
 
-aggravate()
+void aggravate()
 {
     struct linked_list *mi;
 
@@ -355,9 +346,7 @@ aggravate()
 /*
  * for printfs: if string starts with a vowel, return "n" for an "an"
  */
-char *
-vowelstr(str)
-char *str;
+char* vowelstr(char *str)
 {
     switch (*str)
     {
@@ -375,8 +364,7 @@ char *str;
 /* 
  * see if the object is one of the currently used items
  */
-is_current(obj)
-struct object *obj;
+bool is_current(struct object* obj)
 {
     if (obj == NULL)
 	return FALSE;
@@ -392,7 +380,7 @@ struct object *obj;
 /*
  * set up the direction co_ordinate for use in varios "prefix" commands
  */
-get_dir()
+bool get_dir()
 {
     char *prompt;
     bool gotit;

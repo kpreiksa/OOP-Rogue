@@ -16,7 +16,7 @@
 
 #include <string.h>
 
-new_level()
+void new_level()
 {
     int rm, i;
     char ch;
@@ -90,7 +90,7 @@ new_level()
  * Pick a room that is really there
  */
 
-rnd_room()
+int rnd_room()
 {
     int rm;
 
@@ -106,7 +106,7 @@ rnd_room()
  *	put potions and scrolls on this level
  */
 
-put_things()
+void put_things()
 {
     int i;
     struct linked_list *item;
