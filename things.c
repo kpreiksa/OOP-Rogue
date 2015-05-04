@@ -16,6 +16,14 @@
 #include <string.h>
 #include "rogue.h"
 
+
+char* inv_name(struct object*, bool);
+int money();
+int drop();
+int dropcheck(struct object*);
+struct linked_list* new_thing();
+int pick_one(struct magic_item*, int);
+
 /*
  * inv_name:
  *	return the name of something as it would appear in an

@@ -16,6 +16,11 @@
 #include <string.h>
 #include "rogue.h"
 
+void fix_stick(struct object*);
+int do_zap(bool);
+int drain(int, int, int, int);
+char* charge_str(struct object*);
+
 void fix_stick(struct object* cur)
 {
     if (strcmp(ws_type[cur->o_which], "staff") == 0)
