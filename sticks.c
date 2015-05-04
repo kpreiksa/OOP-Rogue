@@ -16,8 +16,7 @@
 #include <string.h>
 #include "rogue.h"
 
-fix_stick(cur)
-struct object *cur;
+void fix_stick(struct object* cur)
 {
     if (strcmp(ws_type[cur->o_which], "staff") == 0)
 	strcpy(cur->o_damage,"2d3");
@@ -37,8 +36,7 @@ struct object *cur;
     }
 }
 
-do_zap(gotdir)
-bool gotdir;
+int do_zap(bool gotdir)
 {
     struct linked_list *item;
     struct object *obj;
@@ -343,8 +341,7 @@ bool gotdir;
  *	Do drain hit points from player shtick
  */
 
-drain(ymin, ymax, xmin, xmax)
-int ymin, ymax, xmin, xmax;
+int drain(int ymin, int ymax, int xmin, int xmax)
 {
     int i, j, count;
     struct thing *ick;
@@ -382,9 +379,7 @@ int ymin, ymax, xmin, xmax;
 /*
  * charge a wand for wizards.
  */
-char *
-charge_str(obj)
-struct object *obj;
+char* charge_str(struct object* obj)
 {
     static char buf[20];
 

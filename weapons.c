@@ -57,8 +57,7 @@ static struct init_weps {
  *	Fire a missile in a given direction
  */
 
-missile(ydelta, xdelta)
-int ydelta, xdelta;
+int missile(int ydelta, int xdelta)
 {
     struct object *obj;
     struct linked_list *item, *nitem;
@@ -107,9 +106,7 @@ int ydelta, xdelta;
  * do the actual motion on the screen done by an object traveling
  * across the room
  */
-do_motion(obj, ydelta, xdelta)
-struct object *obj;
-int ydelta, xdelta;
+void do_motion(struct object* obj, int ydelta, int xdelta)
 {
     /*
      * Come fly with us ...
@@ -154,9 +151,7 @@ int ydelta, xdelta;
  *	Drop an item someplace around here.
  */
 
-fall(item, pr)
-struct linked_list *item;
-bool pr;
+int fall(struct linked_list* item, bool pr)
 {
     struct object *obj;
     struct room *rp;
@@ -188,9 +183,7 @@ bool pr;
  *	Set up the initial goodies for a weapon
  */
 
-init_weapon(weap, type)
-struct object *weap;
-char type;
+void init_weapon(struct object* weap, char type)
 {
     struct init_weps *iwp;
 
@@ -212,9 +205,7 @@ char type;
  * Does the missile hit the monster
  */
 
-hit_monster(y, x, obj)
-int y, x;
-struct object *obj;
+int hit_monster(int y, int x,struct object* obj)
 {
     static coord mp;
 
@@ -228,9 +219,7 @@ struct object *obj;
  *	Figure out the plus number for armor/weapons
  */
 
-char *
-num(n1, n2)
-int n1, n2;
+char* num(int n1, int n2)
 {
     static char numbuf[80];
 
@@ -249,7 +238,7 @@ int n1, n2;
  *	Pull out a certain weapon
  */
 
-wield()
+int wield()
 {
     struct linked_list *item;
     struct object *obj, *oweapon;
@@ -288,9 +277,7 @@ bad:
 /*
  * pick a random position around the give (y, x) coordinates
  */
-fallpos(pos, newpos, passages)
-coord *pos, *newpos;
-bool passages;
+int fallpos(coord* pos, coord* newpos, bool passages)
 {
     int y, x, cnt, ch;
 

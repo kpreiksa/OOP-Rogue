@@ -21,10 +21,7 @@
  *	return the name of something as it would appear in an
  *	inventory.
  */
-char *
-inv_name(obj, drop)
-struct object *obj;
-bool drop;
+char* inv_name(struct object* obj, bool drop)
 {
     char *pb;
 
@@ -141,7 +138,7 @@ bool drop;
  * money:
  *	Add to characters purse
  */
-money()
+int money()
 {
     struct room *rp;
 
@@ -167,7 +164,7 @@ money()
  * drop:
  *	put something down
  */
-drop()
+int drop()
 {
     char ch;
     struct linked_list *obj, *nobj;
@@ -213,8 +210,7 @@ drop()
 /*
  * do special checks for dropping or unweilding|unwearing|unringing
  */
-dropcheck(op)
-struct object *op;
+int dropcheck(struct object* op)
 {
     str_t save_max;
 
@@ -259,8 +255,7 @@ struct object *op;
 /*
  * return a new thing
  */
-struct linked_list *
-new_thing()
+struct linked_list* new_thing()
 {
     struct linked_list *item;
     struct object *cur;
@@ -356,9 +351,7 @@ new_thing()
 /*
  * pick an item out of a list of nitems possible magic items
  */
-pick_one(magic, nitems)
-struct magic_item *magic;
-int nitems;
+int pick_one(struct magic_item* magic, int nitems)
 {
     struct magic_item *end;
     int i;

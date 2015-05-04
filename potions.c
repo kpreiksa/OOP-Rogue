@@ -14,7 +14,7 @@
 #include <string.h>
 #include "rogue.h"
 
-quaff()
+void quaff()
 {
     struct object *obj;
     struct linked_list *item, *titem;

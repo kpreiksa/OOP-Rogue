@@ -13,7 +13,7 @@
 #include "curses.h"
 #include "rogue.h"
 
-do_rooms()
+void do_rooms()
 {
     int i;
     struct room *rp;
@@ -113,8 +113,7 @@ do_rooms()
  * Draw a box around a room
  */
 
-draw_room(rp)
-struct room *rp;
+void draw_room(struct room* rp)
 {
     int j, k;
 
@@ -146,8 +145,7 @@ struct room *rp;
  *	draw a horizontal line
  */
 
-horiz(cnt)
-int cnt;
+void horiz(int cnt)
 {
     while (cnt--)
 	addch('-');
@@ -158,8 +156,7 @@ int cnt;
  *	draw a vertical line
  */
 
-vert(cnt)
-int cnt;
+void ert(int cnt)
 {
     int x, y;
 
@@ -176,9 +173,7 @@ int cnt;
  *	pick a random spot in a room
  */
 
-rnd_pos(rp, cp)
-struct room *rp;
-coord *cp;
+void rnd_pos(struct room* rp, coord* cp)
 {
     cp->x = rp->r_pos.x + rnd(rp->r_max.x-2) + 1;
     cp->y = rp->r_pos.y + rnd(rp->r_max.y-2) + 1;
