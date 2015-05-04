@@ -20,8 +20,8 @@
 
 void wear()
 {
-    struct linked_list *item;
-    struct object *obj;
+    struct linked_list* item;
+    struct object* obj;
 
     if (cur_armor != NULL)
     {
@@ -55,9 +55,9 @@ void wear()
  *	Get the armor off of the players back
  */
 
-take_off()
+void take_off()
 {
-    struct object *obj;
+    struct object* obj;
 
     if ((obj = cur_armor) == NULL)
     {
@@ -82,7 +82,7 @@ take_off()
  *	Do nothing but let other things happen
  */
 
-waste_time()
+void waste_time()
 {
     do_daemons(BEFORE);
     do_fuses(BEFORE);

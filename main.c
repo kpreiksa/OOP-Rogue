@@ -23,9 +23,7 @@ WINDOW *cw;                              /* Window that the player sees */
 WINDOW *hw;                              /* Used for the help command */
 WINDOW *mw;                              /* Used to store mosnters */
 
-main(argc, argv, envp)
-char **argv;
-char **envp;
+int main(int argc, char** argv, char** envp)
 {
     char *env;
     struct linked_list *item;
@@ -199,8 +197,7 @@ char **envp;
  *	Exit the program abnormally.
  */
 
-void
-endit(int p)
+void endit(int p)
 {
     fatal("Ok, if you want to exit that badly, I'll have to allow it\n");
 }
@@ -210,8 +207,7 @@ endit(int p)
  *	Exit the program, printing a message.
  */
 
-fatal(s)
-char *s;
+void fatal(char* s)
 {
     clear();
     move(LINES-2, 0);
@@ -226,8 +222,7 @@ char *s;
  *	Pick a very random number.
  */
 
-rnd(range)
-int range;
+int rnd(int range)
 {
     return range == 0 ? 0 : abs(RN) % range;
 }
@@ -237,8 +232,7 @@ int range;
  *	roll a number of dice
  */
 
-roll(number, sides)
-int number, sides;
+int roll(int number, int sides)
 {
     int dtotal = 0;
 
@@ -250,8 +244,7 @@ int number, sides;
  * handle stop and start signals
  */
 
-void
-tstp(int p)
+void tstp(int p)
 {
 #ifdef SIGTSTP
     signal(SIGTSTP, SIG_IGN);
@@ -272,7 +265,7 @@ tstp(int p)
     flush_type();	/* flush input */
 }
 
-setup()
+void setup()
 {
 #ifdef SIGHUP
     signal(SIGHUP, auto_save);
@@ -326,7 +319,7 @@ setup()
  * refreshing things and looking at the proper times.
  */
 
-playit()
+void playit()
 {
     char *opts;
 
@@ -358,7 +351,7 @@ playit()
 /*
  * see if the system is being used too much for this game
  */
-too_much()
+void too_much()
 {
     double avec[3];
 
@@ -371,7 +364,7 @@ too_much()
 /*
  * see if a user is an author of the program
  */
-author()
+void author()
 {
     switch (md_getuid())
     {
@@ -384,8 +377,7 @@ author()
 
 int chmsg(char *fmt, ...);
 
-void
-checkout(int p)
+void checkout(int p)
 {
     static char *msgs[] = {
 	"The load is too high to be playing.  Please leave in %d minutes",
@@ -423,7 +415,7 @@ checkout(int p)
  * checkout()'s version of msg.  If we are in the middle of a shell, do a
  * printf instead of a msg to avoid the refresh.
  */
-chmsg(char *fmt, ...)
+void chmsg(char *fmt, ...)
 {
     va_list args;
 

@@ -22,10 +22,10 @@
  *	Process the user commands
  */
 
-command()
+void command()
 {
-     char ch;
-     int ntimes = 1;			/* Number of player moves */
+    char ch;
+    int ntimes = 1;			/* Number of player moves */
     static char countch, direction, newcount = FALSE;
 
 
@@ -315,8 +315,7 @@ command()
  *	Have player make certain, then exit.
  */
 
-void
-quit(int p)
+void quit(int p)
 {
     /*
      * Reset the signal in case we got here via an interrupt
@@ -351,10 +350,10 @@ quit(int p)
  *	Player gropes about him to find hidden things.
  */
 
-search()
+void search()
 {
-     int x, y;
-     char ch;
+    int x, y;
+    char ch;
 
     /*
      * Look all around the hero, if there is something hidden there,
@@ -398,11 +397,11 @@ search()
  *	Give single character help, or the whole mess if he wants it
  */
 
-help()
+void help()
 {
-     struct h_list *strp = helpstr;
-     char helpch;
-     int cnt;
+    struct h_list *strp = helpstr;
+    char helpch;
+    int cnt;
 
     msg("Character you want help for (* for all): ");
     helpch = readchar(cw);
@@ -457,9 +456,9 @@ help()
  *	Tell the player what a certain thing is.
  */
 
-identify()
+void identify()
 {
-     char ch, *str;
+    char ch, *str;
 
     msg("What do you want identified? ");
     ch = readchar(cw);
@@ -502,7 +501,7 @@ identify()
  *	He wants to go down a level
  */
 
-d_level()
+void d_level()
 {
     if (winat(hero.y, hero.x) != STAIRS)
 	msg("I see no way down.");
@@ -518,7 +517,7 @@ d_level()
  *	He wants to go up a level
  */
 
-u_level()
+void u_level()
 {
     if (winat(hero.y, hero.x) == STAIRS)
     {
@@ -539,7 +538,7 @@ u_level()
  * Let him escape for a while
  */
 
-shell()
+void shell()
 {
     /*
      * Set the terminal back to original mode
@@ -567,12 +566,12 @@ shell()
 /*
  * allow a user to call a potion, scroll, or ring something
  */
-call()
+void call()
 {
-     struct object *obj;
-     struct linked_list *item;
-     char **guess, *elsewise;
-     bool *know;
+    struct object *obj;
+    struct linked_list *item;
+    char **guess, *elsewise;
+    bool *know;
 
     item = get_item("call", CALLABLE);
     /*

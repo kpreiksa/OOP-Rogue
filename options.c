@@ -56,7 +56,7 @@ OPTION	optlist[] = {
 /*
  * print and then set options from the terminal
  */
-option()
+void option()
 {
     OPTION	*op;
     int	retval;
@@ -107,8 +107,7 @@ option()
 /*
  * put out a boolean
  */
-put_bool(b)
-bool	*b;
+void put_bool(bool* b)
 {
     waddstr(hw, *b ? "True" : "False");
 }
@@ -116,8 +115,7 @@ bool	*b;
 /*
  * put out a string
  */
-put_str(str)
-char *str;
+void put_str(char* str)
 {
     waddstr(hw, str);
 }
@@ -126,9 +124,7 @@ char *str;
  * allow changing a boolean option and print it out
  */
 
-get_bool(bp, win)
-bool *bp;
-WINDOW *win;
+get_bool(bool* bp, WINDOW* win)
 {
     int oy, ox;
     bool op_bad;
@@ -174,9 +170,7 @@ WINDOW *win;
 /*
  * set a string option
  */
-get_str(opt, win)
-char *opt;
-WINDOW *win;
+int get_str(char* opt, WINDOW* win)
 {
     char *sp;
     int c, oy, ox;
@@ -265,8 +259,7 @@ WINDOW *win;
  * or the end of the entire option string.
  */
 
-parse_opts(str)
-char *str;
+void parse_opts(char* str)
 {
     char *sp;
     OPTION *op;
@@ -336,9 +329,7 @@ char *str;
 /*
  * copy string using unctrl for things
  */
-strucpy(s1, s2, len)
-char *s1, *s2;
-int len;
+void strucpy(char* s1, char* s2, int len)
 {
     char *sp;
 

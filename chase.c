@@ -20,10 +20,10 @@ coord ch_ret;				/* Where chasing takes you */
  *	Make all the running monsters move.
  */
 
-runners()
+void runners()
 {
-    struct linked_list *item;
-    struct thing *tp;
+    struct linked_list* item;
+    struct thing* tp;
 
     for (item = mlist; item != NULL;)
     {
@@ -47,8 +47,7 @@ runners()
  *	Make one thing chase another.
  */
 
-do_chase(th)
- struct thing *th;
+int do_chase(struct thing* th)
 {
     struct room *rer, *ree;	/* room of chaser, room of chasee */
     int mindist = 32767, i, dist;
@@ -125,12 +124,10 @@ do_chase(th)
  *	or stop it from running (for when it dies)
  */
 
-runto(runner, spot)
- coord *runner;
-coord *spot;
+void runto(coord* runner, coord* spot)
 {
-    struct linked_list *item;
-    struct thing *tp;
+    struct linked_list* item;
+    struct thing* tp;
 
     /*
      * If we couldn't find him, something is funny
@@ -156,16 +153,14 @@ coord *spot;
  *	FALSE if we reach the goal.
  */
 
-chase(tp, ee)
-struct thing *tp;
-coord *ee;
+int chase(struct thing* tp, coord* ee)
 {
     int x, y;
-     int dist, thisdist;
-     struct linked_list *item;
-     struct object *obj;
-     coord *er = &tp->t_pos;
-     char ch;
+    int dist, thisdist;
+    struct linked_list *item;
+    struct object *obj;
+    coord *er = &tp->t_pos;
+    char ch;
 
     /*
      * If the thing is confused, let it move randomly. Invisible
@@ -251,11 +246,9 @@ coord *ee;
  *	in any room.
  */
 
-struct room *
-roomin(cp)
- coord *cp;
+struct room* roomin(ccord *cp)
 {
-     struct room *rp;
+    struct room *rp;
 
     for (rp = rooms; rp <= &rooms[MAXROOMS-1]; rp++)
 	if (inroom(rp, cp))
@@ -268,13 +261,10 @@ roomin(cp)
  *	Find the monster from his corrdinates
  */
 
-struct linked_list *
-find_mons(y, x)
- int y;
-int x;
+struct linked_list* find_mons(int y, int x)
 {
-     struct linked_list *item;
-     struct thing *th;
+    struct linked_list *item;
+    struct thing *th;
 
     for (item = mlist; item != NULL; item = next(item))
     {
@@ -290,8 +280,7 @@ int x;
  *	Check to see if the move is legal if it is diagonal
  */
 
-diag_ok(sp, ep)
- coord *sp, *ep;
+void diag_ok(coord* sp, coord* ep)
 {
     if (ep->x == sp->x || ep->y == sp->y)
 	return TRUE;
@@ -303,10 +292,9 @@ diag_ok(sp, ep)
  *	returns true if the hero can see a certain coordinate.
  */
 
-cansee(y, x)
- int y, x;
+void cansee(int y, int x)
 {
-     struct room *rer;
+    struct room *rer;
     coord tp;
 
     if (on(player, ISBLIND))

@@ -25,8 +25,7 @@ coord nh;
  *	Start the hero running
  */
 
-do_run(ch)
-char ch;
+void do_run(char ch)
 {
     running = TRUE;
     after = FALSE;
@@ -39,8 +38,7 @@ char ch;
  * consequences (fighting, picking up, etc.)
  */
 
-do_move(dy, dx)
-int dy, dx;
+void do_move(int dy, int dx)
 {
     char ch;
 
@@ -137,8 +135,7 @@ move_stuff:
  * If it is dark, remove anything that might move.
  */
 
-light(cp)
-coord *cp;
+void light(coord* cp)
 {
     struct room *rp;
     int j, k;
@@ -205,8 +202,7 @@ coord *cp;
  *	returns what a certain thing will display as to the un-initiated
  */
 
-show(y, x)
-int y, x;
+char show(int y, int x)
 {
     char ch = winat(y, x);
     struct linked_list *it;
@@ -235,8 +231,7 @@ int y, x;
  *	The guy stepped on a trap.... Make him pay.
  */
 
-be_trapped(tc)
-coord *tc;
+char be_trapped(coord* tc)
 {
     struct trap *tp;
     char ch;
@@ -309,9 +304,7 @@ coord *tc;
  *	find the trap at (y,x) on screen.
  */
 
-struct trap *
-trap_at(y, x)
-int y, x;
+struct trap* trap_at(int y, int x)
 {
     struct trap *tp, *ep;
 
@@ -332,9 +325,7 @@ int y, x;
  *	move in a random direction if the monster/person is confused
  */
 
-coord *
-rndmove(who)
-struct thing *who;
+coord* rndmove(struct thing* who)
 {
     int x, y;
     char ch;

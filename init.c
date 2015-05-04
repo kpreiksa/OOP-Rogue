@@ -108,7 +108,7 @@ struct monster monsters[26] = {
  *	roll up the rogue
  */
 
-init_player()
+void init_player()
 {
     pstats.s_lvl = 1;
     pstats.s_exp = 0L;
@@ -374,7 +374,7 @@ static bool used[MAX3(NCOLORS, NSTONES, NWOOD)];
  * init_things
  *	Initialize the probabilities for types of things
  */
-init_things()
+void init_things()
 {
     struct magic_item *mp;
 
@@ -388,7 +388,7 @@ init_things()
  *	Initialize the potion color scheme for this time
  */
 
-init_colors()
+void init_colors()
 {
     int i, j;
 
@@ -414,7 +414,7 @@ init_colors()
  *	Generate the names of the various scrolls
  */
 
-init_names()
+void init_names()
 {
     int nsyl;
     char *cp, *sp;
@@ -451,7 +451,7 @@ init_names()
  *	Initialize the ring stone setting scheme for this time
  */
 
-init_stones()
+void init_stones()
 {
     int i, j;
 
@@ -477,7 +477,7 @@ init_stones()
  *	Initialize the construction materials for wands and staffs
  */
 
-init_materials()
+void init_materials()
 {
     int i, j;
     static bool metused[NMETAL];
@@ -521,10 +521,7 @@ init_materials()
     badcheck("sticks", ws_magic, MAXSTICKS);
 }
 
-badcheck(name, magic, bound)
-char *name;
-struct magic_item *magic;
-int bound;
+void badcheck(char *name, struct magic_item* magic, int bound)
 {
     struct magic_item *end;
 
