@@ -15,6 +15,13 @@
 #include <string.h>
 #include "rogue.h"
 
+void _detach(struct linked_list **list, struct linked_list *item);
+void _attach(struct linked_list **list, struct linked_list *item);
+void _free_list(struct linked_list **ptr);
+void discard(struct linked_list *item);
+struct linked_list* new_item(int size);
+char* new(int size);
+
 /*
  * detach:
  *	Takes an item out of whatever linked list it might be in

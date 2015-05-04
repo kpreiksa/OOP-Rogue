@@ -14,6 +14,18 @@
 #include "rogue.h"
 #include <ctype.h>
 
+char* tr_name(char ch);
+void look(bool wakeup);
+char secretdoor(int y, int x);
+struct linked_list * find_obj(int y, int x);
+void eat();
+void chg_str(int amt);
+void add_haste(bool potion);
+void aggravate();
+char* vowelstr(char *str);
+bool is_current(struct object* obj);
+bool get_dir();
+
 /*
  * tr_name:
  *	print the name of a trap

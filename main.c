@@ -23,6 +23,18 @@ WINDOW *cw;                              /* Window that the player sees */
 WINDOW *hw;                              /* Used for the help command */
 WINDOW *mw;                              /* Used to store mosnters */
 
+void endit(int p);
+void fatal(char* s);
+int rnd(int range);
+int roll(int number, int sides);
+void tstp(int p);
+void setup();
+void playit();
+void too_much();
+void author();
+void checkout(int p);
+void chmsg(char *fmt, ...);
+
 int main(int argc, char** argv, char** envp)
 {
     char *env;

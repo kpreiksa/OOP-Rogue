@@ -16,6 +16,17 @@
 #include <string.h>
 #include "rogue.h"
 
+void msg(char *fmt, ...);
+void addmsg(char *fmt, ...);
+void endmsg();
+void doadd(char *fmt, va_list ap);
+void step_ok(ch);
+void readchar(WINDOW *win);
+void status();
+void wait_for(WINDOW *win, char ch);
+void show_win(WINDOW *scr, char *message);
+void flush_type();
+
 /*
  * msg:
  *	Display a message at the top of the screen.

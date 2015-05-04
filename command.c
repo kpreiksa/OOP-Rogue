@@ -17,6 +17,16 @@
 #include <string.h>
 #include "rogue.h"
 
+void command();
+void quit(int p);
+void search();
+void help();
+void identify();
+void d_level();
+void u_level();
+void shell();
+void call();
+
 /*
  * command:
  *	Process the user commands

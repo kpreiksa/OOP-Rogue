@@ -15,6 +15,26 @@
 #include <string.h>
 #include "rogue.h"
 
+bool fight(coord *mp, char mn, struct object* weap, bool thrown);
+int attack(struct thing *mp);
+int swing(int at_lvl, int op_arm, int wplus);
+void check_level();
+bool roll_em(struct stats* att, struct stats* def, struct object* weap, bool hurl);
+char* prname(char *who, bool upper);
+void hit(char *er, char *ee);
+void miss(char *er, char *ee);
+void save_throw(int which, struct thing* tp);
+void save(int which);
+int str_plus(str_t *str);
+int add_dam(str_t *str);
+void raise_level();
+void thunk(struct object* weap, char *mname);
+void bounce(struct object* weap, char *mname);
+void remove_monster(coord *mp, struct linked_list* item);
+void is_magic(struct object* obj);
+void killed(struct linked_list* item, bool pr);
+
+
 long e_levels[] = {
     10L,20L,40L,80L,160L,320L,640L,1280L,2560L,5120L,10240L,20480L,
     40920L, 81920L, 163840L, 327680L, 655360L, 1310720L, 2621440L, 0L };
