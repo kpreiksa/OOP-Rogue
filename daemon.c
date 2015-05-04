@@ -32,8 +32,8 @@ struct delayed_action d_list[MAXDAEMONS] = {
 struct delayed_action *
 d_slot()
 {
-    register int i;
-    register struct delayed_action *dev;
+     int i;
+     struct delayed_action *dev;
 
     for (i = 0, dev = d_list; i < MAXDAEMONS; i++, dev++)
 	if (dev->d_type == EMPTY)
@@ -49,10 +49,10 @@ d_slot()
 
 struct delayed_action *
 find_slot(func)
-register int (*func)();
+ int (*func)();
 {
-    register int i;
-    register struct delayed_action *dev;
+     int i;
+     struct delayed_action *dev;
 
     for (i = 0, dev = d_list; i < MAXDAEMONS; i++, dev++)
 	if (dev->d_type != EMPTY && func == dev->d_func)
@@ -68,7 +68,7 @@ register int (*func)();
 start_daemon(func, arg, type)
 int (*func)(), arg, type;
 {
-    register struct delayed_action *dev;
+     struct delayed_action *dev;
 
     dev = d_slot();
  
@@ -89,7 +89,7 @@ int (*func)(), arg, type;
 kill_daemon(func)
 int (*func)();
 {
-    register struct delayed_action *dev;
+     struct delayed_action *dev;
 
     if ((dev = find_slot(func)) == NULL)
 	return;
@@ -106,9 +106,9 @@ int (*func)();
  */
 
 do_daemons(flag)
-register int flag;
+ int flag;
 {
-    register struct delayed_action *dev;
+     struct delayed_action *dev;
 
     /*
      * Loop through the devil list
@@ -129,7 +129,7 @@ register int flag;
 fuse(func, arg, time, type)
 int (*func)(), arg, time, type;
 {
-    register struct delayed_action *wire;
+     struct delayed_action *wire;
 
     wire = d_slot();
 
@@ -151,7 +151,7 @@ lengthen(func, xtime)
 int (*func)();
 int xtime;
 {
-    register struct delayed_action *wire;
+     struct delayed_action *wire;
 
     if ((wire = find_slot(func)) == NULL)
 	return;
@@ -166,7 +166,7 @@ int xtime;
 extinguish(func)
 int (*func)();
 {
-    register struct delayed_action *wire;
+     struct delayed_action *wire;
 
     if ((wire = find_slot(func)) == NULL)
 	return;
@@ -179,9 +179,9 @@ int (*func)();
  */
 
 do_fuses(flag)
-register int flag;
+ int flag;
 {
-    register struct delayed_action *wire;
+     struct delayed_action *wire;
 
     /*
      * Step though the list

@@ -18,8 +18,8 @@
 
 new_level()
 {
-    register int rm, i;
-    register char ch;
+    int rm, i;
+    char ch;
     coord stairs;
 
     if (level > max_level)
@@ -92,7 +92,7 @@ new_level()
 
 rnd_room()
 {
-    register int rm;
+    int rm;
 
     do
     {
@@ -108,10 +108,10 @@ rnd_room()
 
 put_things()
 {
-    register int i;
-    register struct linked_list *item;
-    register struct object *cur;
-    register int rm;
+    int i;
+    struct linked_list *item;
+    struct object *cur;
+    int rm;
     coord tp;
 
     /*

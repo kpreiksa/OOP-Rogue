@@ -20,8 +20,8 @@
 
 void wear()
 {
-    register struct linked_list *item;
-    register struct object *obj;
+    struct linked_list *item;
+    struct object *obj;
 
     if (cur_armor != NULL)
     {
@@ -57,7 +57,7 @@ void wear()
 
 take_off()
 {
-    register struct object *obj;
+    struct object *obj;
 
     if ((obj = cur_armor) == NULL)
     {

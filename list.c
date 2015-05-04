@@ -21,7 +21,7 @@
  */
 
 _detach(list, item)
-register struct linked_list **list, *item;
+struct linked_list **list, *item;
 {
     if (*list == item)
 	*list = next(item);
@@ -37,7 +37,7 @@ register struct linked_list **list, *item;
  */
 
 _attach(list, item)
-register struct linked_list **list, *item;
+struct linked_list **list, *item;
 {
     if (*list != NULL)
     {
@@ -60,9 +60,9 @@ register struct linked_list **list, *item;
  */
 
 _free_list(ptr)
-register struct linked_list **ptr;
+struct linked_list **ptr;
 {
-    register struct linked_list *item;
+    struct linked_list *item;
 
     while (*ptr != NULL)
     {
@@ -78,7 +78,7 @@ register struct linked_list **ptr;
  */
 
 discard(item)
-register struct linked_list *item;
+struct linked_list *item;
 {
     total -= 2;
     FREE(item->l_data);
@@ -94,7 +94,7 @@ struct linked_list *
 new_item(size)
 int size;
 {
-    register struct linked_list *item;
+    struct linked_list *item;
 
     if ((item = (struct linked_list *) new(sizeof *item)) == NULL)
 	msg("Ran out of memory for header after %d items", total);
@@ -109,7 +109,7 @@ char *
 new(size)
 int size;
 {
-    register char *space = ALLOC(size);
+    char *space = ALLOC(size);
 
     if (space == NULL)
     {

@@ -42,7 +42,7 @@ char ch;
 do_move(dy, dx)
 int dy, dx;
 {
-    register char ch;
+    char ch;
 
     firstmove = FALSE;
     if (no_move)
@@ -140,10 +140,10 @@ move_stuff:
 light(cp)
 coord *cp;
 {
-    register struct room *rp;
-    register int j, k;
-    register char ch, rch;
-    register struct linked_list *item;
+    struct room *rp;
+    int j, k;
+    char ch, rch;
+    struct linked_list *item;
 
     if ((rp = roomin(cp)) != NULL && !on(player, ISBLIND))
     {
@@ -206,11 +206,11 @@ coord *cp;
  */
 
 show(y, x)
-register int y, x;
+int y, x;
 {
-    register char ch = winat(y, x);
-    register struct linked_list *it;
-    register struct thing *tp;
+    char ch = winat(y, x);
+    struct linked_list *it;
+    struct thing *tp;
 
     if (ch == TRAP)
 	return (trap_at(y, x)->tr_flags & ISFOUND) ? TRAP : FLOOR;
@@ -236,10 +236,10 @@ register int y, x;
  */
 
 be_trapped(tc)
-register coord *tc;
+coord *tc;
 {
-    register struct trap *tp;
-    register char ch;
+    struct trap *tp;
+    char ch;
 
     tp = trap_at(tc->y, tc->x);
     count = running = FALSE;
@@ -269,8 +269,8 @@ register coord *tc;
 	    }
 	    else
 	    {
-		register struct linked_list *item;
-		register struct object *arrow;
+		struct linked_list *item;
+		struct object *arrow;
 
 		msg("An arrow shoots past you.");
 		item = new_item(sizeof *arrow);
@@ -311,9 +311,9 @@ register coord *tc;
 
 struct trap *
 trap_at(y, x)
-register int y, x;
+int y, x;
 {
-    register struct trap *tp, *ep;
+    struct trap *tp, *ep;
 
     ep = &traps[ntraps];
     for (tp = traps; tp < ep; tp++)
@@ -336,11 +336,11 @@ coord *
 rndmove(who)
 struct thing *who;
 {
-    register int x, y;
-    register char ch;
-    register int ex, ey, nopen = 0;
-    register struct linked_list *item;
-    register struct object *obj;
+    int x, y;
+    char ch;
+    int ex, ey, nopen = 0;
+    struct linked_list *item;
+    struct object *obj;
     static coord ret;  /* what we will be returning */
     static coord dest;
 

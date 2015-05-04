@@ -376,7 +376,7 @@ static bool used[MAX3(NCOLORS, NSTONES, NWOOD)];
  */
 init_things()
 {
-    register struct magic_item *mp;
+    struct magic_item *mp;
 
     for (mp = &things[1]; mp <= &things[NUMTHINGS-1]; mp++)
 	mp->mi_prob += (mp-1)->mi_prob;
@@ -390,7 +390,7 @@ init_things()
 
 init_colors()
 {
-    register int i, j;
+    int i, j;
 
     for (i = 0; i < NCOLORS; i++)
 	used[i] = 0;
@@ -416,9 +416,9 @@ init_colors()
 
 init_names()
 {
-    register int nsyl;
-    register char *cp, *sp;
-    register int i, nwords;
+    int nsyl;
+    char *cp, *sp;
+    int i, nwords;
 
     for (i = 0; i < MAXSCROLLS; i++)
     {
@@ -453,7 +453,7 @@ init_names()
 
 init_stones()
 {
-    register int i, j;
+    int i, j;
 
     for (i = 0; i < NSTONES; i++)
 	used[i] = FALSE;
@@ -479,7 +479,7 @@ init_stones()
 
 init_materials()
 {
-    register int i, j;
+    int i, j;
     static bool metused[NMETAL];
 
     for (i = 0; i < NWOOD; i++)
@@ -523,10 +523,10 @@ init_materials()
 
 badcheck(name, magic, bound)
 char *name;
-register struct magic_item *magic;
-register int bound;
+struct magic_item *magic;
+int bound;
 {
-    register struct magic_item *end;
+    struct magic_item *end;
 
     if (magic[bound - 1].mi_prob == 100)
 	return;

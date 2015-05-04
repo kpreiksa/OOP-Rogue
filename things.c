@@ -23,10 +23,10 @@
  */
 char *
 inv_name(obj, drop)
-register struct object *obj;
-register bool drop;
+struct object *obj;
+bool drop;
 {
-    register char *pb;
+    char *pb;
 
     switch(obj->o_type)
     {
@@ -143,7 +143,7 @@ register bool drop;
  */
 money()
 {
-    register struct room *rp;
+    struct room *rp;
 
     for (rp = rooms; rp <= &rooms[MAXROOMS-1]; rp++)
 	if (ce(hero, rp->r_gold))
@@ -169,9 +169,9 @@ money()
  */
 drop()
 {
-    register char ch;
-    register struct linked_list *obj, *nobj;
-    register struct object *op;
+    char ch;
+    struct linked_list *obj, *nobj;
+    struct object *op;
 
     ch = mvwinch(stdscr, hero.y, hero.x);
     if (ch != FLOOR && ch != PASSAGE)
@@ -214,7 +214,7 @@ drop()
  * do special checks for dropping or unweilding|unwearing|unringing
  */
 dropcheck(op)
-register struct object *op;
+struct object *op;
 {
     str_t save_max;
 
@@ -262,9 +262,9 @@ register struct object *op;
 struct linked_list *
 new_thing()
 {
-    register struct linked_list *item;
-    register struct object *cur;
-    register int j, k;
+    struct linked_list *item;
+    struct object *cur;
+    int j, k;
 
     item = new_item(sizeof *cur);
     cur = (struct object *) ldata(item);
@@ -357,12 +357,12 @@ new_thing()
  * pick an item out of a list of nitems possible magic items
  */
 pick_one(magic, nitems)
-register struct magic_item *magic;
+struct magic_item *magic;
 int nitems;
 {
-    register struct magic_item *end;
-    register int i;
-    register struct magic_item *start;
+    struct magic_item *end;
+    int i;
+    struct magic_item *start;
 
     start = magic;
     for (end = &magic[nitems], i = rnd(100); magic < end; magic++)

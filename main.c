@@ -27,9 +27,9 @@ main(argc, argv, envp)
 char **argv;
 char **envp;
 {
-    register char *env;
-    register struct linked_list *item;
-    register struct object *obj;
+    char *env;
+    struct linked_list *item;
+    struct object *obj;
     int lowtime;
     time_t now;
 
@@ -227,7 +227,7 @@ char *s;
  */
 
 rnd(range)
-register int range;
+int range;
 {
     return range == 0 ? 0 : abs(RN) % range;
 }
@@ -238,9 +238,9 @@ register int range;
  */
 
 roll(number, sides)
-register int number, sides;
+int number, sides;
 {
-    register int dtotal = 0;
+    int dtotal = 0;
 
     while(number--)
 	dtotal += rnd(sides)+1;
@@ -328,7 +328,7 @@ setup()
 
 playit()
 {
-    register char *opts;
+    char *opts;
 
     /*
      * set up defaults for slow terminals

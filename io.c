@@ -136,8 +136,8 @@ WINDOW *win;
 
 status()
 {
-    register int oy, ox, temp;
-    register char *pb;
+    int oy, ox, temp;
+    char *pb;
     static char buf[80];
     static int hpwidth = 0, s_hungry = -1;
     static int s_lvl = -1, s_pur, s_hp = -1, s_str, s_add, s_ac = 0;
@@ -205,9 +205,9 @@ status()
 
 wait_for(win, ch)
 WINDOW *win;
-register char ch;
+char ch;
 {
-    register char c;
+    char c;
 
     if (ch == '\n')
         while ((c = readchar(win)) != '\n' && c != '\r')
@@ -223,7 +223,7 @@ register char ch;
  */
 
 show_win(scr, message)
-register WINDOW *scr;
+WINDOW *scr;
 char *message;
 {
     mvwaddstr(scr, 0, 0, message);

@@ -17,9 +17,9 @@
 
 ring_on()
 {
-    register struct object *obj;
-    register struct linked_list *item;
-    register int ring;
+    struct object *obj;
+    struct linked_list *item;
+    int ring;
     str_t save_max;
     char buf[80];
 
@@ -105,8 +105,8 @@ ring_on()
 
 ring_off()
 {
-    register int ring;
-    register struct object *obj;
+    int ring;
+    struct object *obj;
 
     if (cur_ring[LEFT] == NULL && cur_ring[RIGHT] == NULL)
     {
@@ -136,7 +136,7 @@ ring_off()
 
 gethand()
 {
-    register int c;
+    int c;
 
     for (;;)
     {
@@ -162,7 +162,7 @@ gethand()
  * how much food does this ring use up?
  */
 ring_eat(hand)
-register int hand;
+int hand;
 {
     if (cur_ring[hand] == NULL)
 	return 0;
@@ -186,7 +186,7 @@ register int hand;
  */
 char *
 ring_num(obj)
-register struct object *obj;
+struct object *obj;
 {
     static char buf[5];
 

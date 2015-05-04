@@ -24,8 +24,8 @@
 
 command()
 {
-    register char ch;
-    register int ntimes = 1;			/* Number of player moves */
+     char ch;
+     int ntimes = 1;			/* Number of player moves */
     static char countch, direction, newcount = FALSE;
 
 
@@ -230,16 +230,16 @@ command()
 			when CTRL('C') : add_pass();
 			when CTRL('N') :
 			{
-			    register struct linked_list *item;
+			     struct linked_list *item;
 
 			    if ((item = get_item("charge", STICK)) != NULL)
 				((struct object *) ldata(item))->o_charges = 10000;
 			}
 			when CTRL('H') :
 			{
-			    register int i;
-			    register struct linked_list *item;
-			    register struct object *obj;
+			     int i;
+			     struct linked_list *item;
+			     struct object *obj;
 
 			    for (i = 0; i < 9; i++)
 				raise_level();
@@ -353,8 +353,8 @@ quit(int p)
 
 search()
 {
-    register int x, y;
-    register char ch;
+     int x, y;
+     char ch;
 
     /*
      * Look all around the hero, if there is something hidden there,
@@ -376,7 +376,7 @@ search()
 		    break;
 		case TRAP:
 		{
-		    register struct trap *tp;
+		     struct trap *tp;
 
 		    if (mvwinch(cw, y, x) == TRAP)
 			break;
@@ -400,9 +400,9 @@ search()
 
 help()
 {
-    register struct h_list *strp = helpstr;
-    register char helpch;
-    register int cnt;
+     struct h_list *strp = helpstr;
+     char helpch;
+     int cnt;
 
     msg("Character you want help for (* for all): ");
     helpch = readchar(cw);
@@ -459,7 +459,7 @@ help()
 
 identify()
 {
-    register char ch, *str;
+     char ch, *str;
 
     msg("What do you want identified? ");
     ch = readchar(cw);
@@ -569,10 +569,10 @@ shell()
  */
 call()
 {
-    register struct object *obj;
-    register struct linked_list *item;
-    register char **guess, *elsewise;
-    register bool *know;
+     struct object *obj;
+     struct linked_list *item;
+     char **guess, *elsewise;
+     bool *know;
 
     item = get_item("call", CALLABLE);
     /*

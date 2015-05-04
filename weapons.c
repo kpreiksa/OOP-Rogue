@@ -60,8 +60,8 @@ static struct init_weps {
 missile(ydelta, xdelta)
 int ydelta, xdelta;
 {
-    register struct object *obj;
-    register struct linked_list *item, *nitem;
+    struct object *obj;
+    struct linked_list *item, *nitem;
 
     /*
      * Get which thing we are hurling
@@ -108,8 +108,8 @@ int ydelta, xdelta;
  * across the room
  */
 do_motion(obj, ydelta, xdelta)
-register struct object *obj;
-register int ydelta, xdelta;
+struct object *obj;
+int ydelta, xdelta;
 {
     /*
      * Come fly with us ...
@@ -117,7 +117,7 @@ register int ydelta, xdelta;
     obj->o_pos = hero;
     for (;;)
     {
-	register int ch;
+	int ch;
 
 	/*
 	 * Erase the old one
@@ -155,11 +155,11 @@ register int ydelta, xdelta;
  */
 
 fall(item, pr)
-register struct linked_list *item;
+struct linked_list *item;
 bool pr;
 {
-    register struct object *obj;
-    register struct room *rp;
+    struct object *obj;
+    struct room *rp;
     static coord fpos;
 
     obj = (struct object *) ldata(item);
@@ -189,10 +189,10 @@ bool pr;
  */
 
 init_weapon(weap, type)
-register struct object *weap;
+struct object *weap;
 char type;
 {
-    register struct init_weps *iwp;
+    struct init_weps *iwp;
 
     iwp = &init_dam[type];
     strcpy(weap->o_damage,iwp->iw_dam);
@@ -213,7 +213,7 @@ char type;
  */
 
 hit_monster(y, x, obj)
-register int y, x;
+int y, x;
 struct object *obj;
 {
     static coord mp;
@@ -230,7 +230,7 @@ struct object *obj;
 
 char *
 num(n1, n2)
-register int n1, n2;
+int n1, n2;
 {
     static char numbuf[80];
 
@@ -251,8 +251,8 @@ register int n1, n2;
 
 wield()
 {
-    register struct linked_list *item;
-    register struct object *obj, *oweapon;
+    struct linked_list *item;
+    struct object *obj, *oweapon;
 
     oweapon = cur_weapon;
     if (!dropcheck(cur_weapon))
@@ -289,10 +289,10 @@ bad:
  * pick a random position around the give (y, x) coordinates
  */
 fallpos(pos, newpos, passages)
-register coord *pos, *newpos;
-register bool passages;
+coord *pos, *newpos;
+bool passages;
 {
-    register int y, x, cnt, ch;
+    int y, x, cnt, ch;
 
     cnt = 0;
     for (y = pos->y - 1; y <= pos->y + 1; y++)

@@ -16,9 +16,9 @@
 
 quaff()
 {
-    register struct object *obj;
-    register struct linked_list *item, *titem;
-    register struct thing *th;
+    struct object *obj;
+    struct linked_list *item, *titem;
+    struct thing *th;
     char buf[80];
 
     item = get_item("quaff", POTION);
@@ -112,7 +112,7 @@ quaff()
 		}
 		for (titem = mlist; titem != NULL; titem = next(titem))
 		{
-		    register struct linked_list *pitem;
+		    struct linked_list *pitem;
 
 		    th = (struct thing *) ldata(titem);
 		    for (pitem = th->t_pack; pitem != NULL; pitem = next(pitem))

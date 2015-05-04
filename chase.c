@@ -22,8 +22,8 @@ coord ch_ret;				/* Where chasing takes you */
 
 runners()
 {
-    register struct linked_list *item;
-    register struct thing *tp;
+    struct linked_list *item;
+    struct thing *tp;
 
     for (item = mlist; item != NULL;)
     {
@@ -48,12 +48,12 @@ runners()
  */
 
 do_chase(th)
-register struct thing *th;
+ struct thing *th;
 {
-    register struct room *rer, *ree;	/* room of chaser, room of chasee */
-    register int mindist = 32767, i, dist;
-    register bool stoprun = FALSE;	/* TRUE means we are there */
-    register char sch;
+    struct room *rer, *ree;	/* room of chaser, room of chasee */
+    int mindist = 32767, i, dist;
+    bool stoprun = FALSE;	/* TRUE means we are there */
+    char sch;
     coord this;				/* Temporary destination for chaser */
 
     rer = roomin(&th->t_pos);	/* Find room of chaser */
@@ -126,11 +126,11 @@ register struct thing *th;
  */
 
 runto(runner, spot)
-register coord *runner;
+ coord *runner;
 coord *spot;
 {
-    register struct linked_list *item;
-    register struct thing *tp;
+    struct linked_list *item;
+    struct thing *tp;
 
     /*
      * If we couldn't find him, something is funny
@@ -160,12 +160,12 @@ chase(tp, ee)
 struct thing *tp;
 coord *ee;
 {
-    register int x, y;
-    register int dist, thisdist;
-    register struct linked_list *item;
-    register struct object *obj;
-    register coord *er = &tp->t_pos;
-    register char ch;
+    int x, y;
+     int dist, thisdist;
+     struct linked_list *item;
+     struct object *obj;
+     coord *er = &tp->t_pos;
+     char ch;
 
     /*
      * If the thing is confused, let it move randomly. Invisible
@@ -192,7 +192,7 @@ coord *ee;
      */
     else
     {
-	register int ey, ex;
+	 int ey, ex;
 	/*
 	 * This will eventually hold where we move to get closer
 	 * If we can't find an empty spot, we stay where we are.
@@ -253,9 +253,9 @@ coord *ee;
 
 struct room *
 roomin(cp)
-register coord *cp;
+ coord *cp;
 {
-    register struct room *rp;
+     struct room *rp;
 
     for (rp = rooms; rp <= &rooms[MAXROOMS-1]; rp++)
 	if (inroom(rp, cp))
@@ -270,11 +270,11 @@ register coord *cp;
 
 struct linked_list *
 find_mons(y, x)
-register int y;
+ int y;
 int x;
 {
-    register struct linked_list *item;
-    register struct thing *th;
+     struct linked_list *item;
+     struct thing *th;
 
     for (item = mlist; item != NULL; item = next(item))
     {
@@ -291,7 +291,7 @@ int x;
  */
 
 diag_ok(sp, ep)
-register coord *sp, *ep;
+ coord *sp, *ep;
 {
     if (ep->x == sp->x || ep->y == sp->y)
 	return TRUE;
@@ -304,9 +304,9 @@ register coord *sp, *ep;
  */
 
 cansee(y, x)
-register int y, x;
+ int y, x;
 {
-    register struct room *rer;
+     struct room *rer;
     coord tp;
 
     if (on(player, ISBLIND))

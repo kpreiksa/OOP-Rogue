@@ -15,11 +15,11 @@
 
 do_rooms()
 {
-    register int i;
-    register struct room *rp;
-    register struct linked_list *item;
-    register struct thing *tp;
-    register int left_out;
+    int i;
+    struct room *rp;
+    struct linked_list *item;
+    struct thing *tp;
+    int left_out;
     coord top;
     coord bsze;
     coord mp;
@@ -114,9 +114,9 @@ do_rooms()
  */
 
 draw_room(rp)
-register struct room *rp;
+struct room *rp;
 {
-    register int j, k;
+    int j, k;
 
     move(rp->r_pos.y, rp->r_pos.x+1);
     vert(rp->r_max.y-2);				/* Draw left side */
@@ -147,7 +147,7 @@ register struct room *rp;
  */
 
 horiz(cnt)
-register int cnt;
+int cnt;
 {
     while (cnt--)
 	addch('-');
@@ -159,9 +159,9 @@ register int cnt;
  */
 
 vert(cnt)
-register int cnt;
+int cnt;
 {
-    register int x, y;
+    int x, y;
 
     getyx(stdscr, y, x);
     x--;
@@ -177,8 +177,8 @@ register int cnt;
  */
 
 rnd_pos(rp, cp)
-register struct room *rp;
-register coord *cp;
+struct room *rp;
+coord *cp;
 {
     cp->x = rp->r_pos.x + rnd(rp->r_max.x-2) + 1;
     cp->y = rp->r_pos.y + rnd(rp->r_max.y-2) + 1;

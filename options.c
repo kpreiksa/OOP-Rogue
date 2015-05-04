@@ -58,8 +58,8 @@ OPTION	optlist[] = {
  */
 option()
 {
-    register OPTION	*op;
-    register int	retval;
+    OPTION	*op;
+    int	retval;
 
     wclear(hw);
     touchwin(hw);
@@ -130,8 +130,8 @@ get_bool(bp, win)
 bool *bp;
 WINDOW *win;
 {
-    register int oy, ox;
-    register bool op_bad;
+    int oy, ox;
+    bool op_bad;
 
     op_bad = TRUE;
     getyx(win, oy, ox);
@@ -175,11 +175,11 @@ WINDOW *win;
  * set a string option
  */
 get_str(opt, win)
-register char *opt;
+char *opt;
 WINDOW *win;
 {
-    register char *sp;
-    register int c, oy, ox;
+    char *sp;
+    int c, oy, ox;
     char buf[80];
 
     draw(win);
@@ -197,7 +197,7 @@ WINDOW *win;
 	{
 	    if (sp > buf)
 	    {
-		register int i;
+		int i;
 		int myx, myy;
 
 		sp--;
@@ -266,11 +266,11 @@ WINDOW *win;
  */
 
 parse_opts(str)
-register char *str;
+char *str;
 {
-    register char *sp;
-    register OPTION *op;
-    register int len;
+    char *sp;
+    OPTION *op;
+    int len;
 
     while (*str)
     {
@@ -290,7 +290,7 @@ register char *str;
 		    *(bool *)op->o_opt = TRUE;
 		else				/* string option */
 		{
-		    register char *start;
+		    char *start;
 		    /*
 		     * Skip to start of string value
 		     */
@@ -337,10 +337,10 @@ register char *str;
  * copy string using unctrl for things
  */
 strucpy(s1, s2, len)
-register char *s1, *s2;
-register int len;
+char *s1, *s2;
+int len;
 {
-    register char *sp;
+    char *sp;
 
     while (len--)
     {

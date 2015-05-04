@@ -46,10 +46,10 @@ char	*killname();
  */
 
 death(monst)
-register char monst;
+char monst;
 {
-    register char **dp = rip, *killer;
-    register struct tm *lt;
+    char **dp = rip, *killer;
+    struct tm *lt;
     time_t date;
     char buf[80];
 
@@ -90,13 +90,13 @@ char monst;
 	char sc_login[8];
 	char sc_monster;
     } top_ten[10];
-    register struct sc_ent *scp;
-    register int i;
-    register struct sc_ent *sc2;
-    register FILE *outf;
-    register char *killer;
-    register int prflags = 0;
-    register int fd;
+    struct sc_ent *scp;
+    int i;
+    struct sc_ent *sc2;
+    FILE *outf;
+    char *killer;
+    int prflags = 0;
+    int fd;
     static char *reason[] = {
 	"killed",
 	"quit",
@@ -251,11 +251,11 @@ char monst;
 
 total_winner()
 {
-    register struct linked_list *item;
-    register struct object *obj;
-    register int worth;
-    register char c;
-    register int oldpurse;
+    struct linked_list *item;
+    struct object *obj;
+    int worth;
+    char c;
+    int oldpurse;
 
     clear();
     standout();
@@ -358,7 +358,7 @@ total_winner()
 
 char *
 killname(monst)
-register char monst;
+char monst;
 {
     if (isupper(monst))
 	return monsters[monst-'A'].m_name;
