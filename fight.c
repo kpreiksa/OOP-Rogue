@@ -23,15 +23,15 @@ bool roll_em(struct stats* att, struct stats* def, struct object* weap, bool hur
 char* prname(char *who, bool upper);
 void hit(char *er, char *ee);
 void miss(char *er, char *ee);
-void save_throw(int which, struct thing* tp);
-void save(int which);
+bool save_throw(int which, struct thing* tp);
+bool save(int which);
 int str_plus(str_t *str);
 int add_dam(str_t *str);
 void raise_level();
 void thunk(struct object* weap, char *mname);
 void bounce(struct object* weap, char *mname);
 void remove_monster(coord *mp, struct linked_list* item);
-void is_magic(struct object* obj);
+bool is_magic(struct object* obj);
 void killed(struct linked_list* item, bool pr);
 
 
@@ -518,7 +518,7 @@ void miss(char *er, char *ee)
  * save_throw:
  *	See if a creature save against something
  */
-void save_throw(int which, struct thing* tp)
+bool save_throw(int which, struct thing* tp)
 {
     int need;
 
@@ -531,7 +531,7 @@ void save_throw(int which, struct thing* tp)
  *	See if he saves against various nasty things
  */
 
-void save(int which)
+bool save(int which)
 {
     return save_throw(which, &player);
 }
@@ -636,7 +636,7 @@ void remove_monster(coord *mp, struct linked_list* item)
  *	Returns true if an object radiates magic
  */
 
-void is_magic(struct object* obj)
+bool is_magic(struct object* obj)
 {
     switch (obj->o_type)
     {

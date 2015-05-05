@@ -20,8 +20,8 @@ void msg(char *fmt, ...);
 void addmsg(char *fmt, ...);
 void endmsg();
 void doadd(char *fmt, va_list ap);
-void step_ok(ch);
-void readchar(WINDOW *win);
+bool step_ok(int ch);
+int readchar(WINDOW *win);
 void status();
 void wait_for(WINDOW *win, char ch);
 void show_win(WINDOW *scr, char *message);
@@ -104,7 +104,7 @@ void doadd(char *fmt, va_list ap)
  *	returns true if it is ok to step on ch
  */
 
-void step_ok(ch)
+bool step_ok(int ch)
 {
     switch (ch)
     {
@@ -124,7 +124,7 @@ void step_ok(ch)
  *	getchar.
  */
 
-void readchar(WINDOW *win)
+int readchar(WINDOW *win)
 {
     int ch;
 

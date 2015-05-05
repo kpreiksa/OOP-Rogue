@@ -511,9 +511,11 @@ struct room *roomin();
 coord *rndmove();
 
 void auto_save(int p), endit(int p), quit(int p), tstp(), checkout();
-int nohaste(), doctor(), swander();
+void nohaste();
+void doctor();
+void swander();
 void runners();
-int unconfuse(), unsee(), rollwand(), stomach(), sight();
+void unconfuse(), unsee(), rollwand(), stomach(), sight();
 
 struct trap *trap_at();
 
