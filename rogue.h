@@ -502,7 +502,8 @@ extern coord nh;
 struct linked_list *find_mons(), *find_obj(), *get_item(), *new_item();
 struct linked_list *new_thing(), *wake_monster();
 
-char *tr_name(), *new();
+char *tr_name(char ch);
+char *new();
 char *charge_str(),*vowelstr(), *inv_name();
 char *ctime(), *num(), *ring_num();
 
@@ -511,8 +512,11 @@ struct room *roomin();
 coord *rndmove();
 
 void auto_save(int p), endit(int p), quit(int p), tstp(), checkout();
-int nohaste(), doctor(), runners(), swander();
-int unconfuse(), unsee(), rollwand(), stomach(), sight();
+void nohaste();
+void doctor();
+void swander();
+void runners();
+void unconfuse(), unsee(), rollwand(), stomach(), sight();
 
 struct trap *trap_at();
 
