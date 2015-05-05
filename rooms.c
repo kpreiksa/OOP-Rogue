@@ -156,7 +156,7 @@ void horiz(int cnt)
  *	draw a vertical line
  */
 
-void ert(int cnt)
+void vert(int cnt)
 {
     int x, y;
 
