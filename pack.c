@@ -14,6 +14,8 @@
 #include <ctype.h>
 #include "rogue.h"
 
+char pack_char(struct object* obj);
+
 /*
  * add_pack:
  *	Pick up an object and add it to the pack.  If the argument is non-null
@@ -188,7 +190,7 @@ picked_up:
  * inventory:
  *	list what is in the pack
  */
-void inventory(struct linked_list* list, int type)
+bool inventory(struct linked_list* list, int type)
 {
     struct object *obj;
     char ch;

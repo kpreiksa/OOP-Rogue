@@ -177,7 +177,7 @@ int rs_write(FILE *savef, void *ptr, size_t size)
     return(WRITESTAT);
 }
 
-int rs_read(int inf, void *ptr, size_t size)
+int rs_read(FILE* inf, void *ptr, size_t size)
 {
     if (read_error || format_error)
         return(READSTAT);
@@ -198,7 +198,7 @@ int rs_write_char(FILE *savef, char c)
     return(WRITESTAT);
 }
 
-int rs_read_char(int inf, char *c)
+int rs_read_char(FILE* inf, char *c)
 {
     if (read_error || format_error)
         return(READSTAT);
