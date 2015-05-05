@@ -19,10 +19,10 @@ void runners();
 int do_chase(struct thing* th);
 void runto(coord* runner, coord* spot);
 int chase(struct thing* tp, coord* ee);
-struct room* roomin(ccord *cp);
+struct room* roomin(coord *cp);
 struct linked_list* find_mons(int y, int x);
-void diag_ok(coord* sp, coord* ep);
-void cansee(int y, int x);
+bool diag_ok(coord* sp, coord* ep);
+bool cansee(int y, int x);
 
 /*
  * runners:
@@ -255,7 +255,7 @@ int chase(struct thing* tp, coord* ee)
  *	in any room.
  */
 
-struct room* roomin(ccord *cp)
+struct room* roomin(coord *cp)
 {
     struct room *rp;
 
@@ -289,7 +289,7 @@ struct linked_list* find_mons(int y, int x)
  *	Check to see if the move is legal if it is diagonal
  */
 
-void diag_ok(coord* sp, coord* ep)
+bool diag_ok(coord* sp, coord* ep)
 {
     if (ep->x == sp->x || ep->y == sp->y)
 	return TRUE;
@@ -301,7 +301,7 @@ void diag_ok(coord* sp, coord* ep)
  *	returns true if the hero can see a certain coordinate.
  */
 
-void cansee(int y, int x)
+bool cansee(int y, int x)
 {
     struct room *rer;
     coord tp;

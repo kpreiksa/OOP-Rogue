@@ -30,8 +30,8 @@ int roll(int number, int sides);
 void tstp(int p);
 void setup();
 void playit();
-void too_much();
-void author();
+bool too_much();
+bool author();
 void checkout(int p);
 void chmsg(char *fmt, ...);
 
@@ -363,7 +363,7 @@ void playit()
 /*
  * see if the system is being used too much for this game
  */
-void too_much()
+bool too_much()
 {
     double avec[3];
 
@@ -376,7 +376,7 @@ void too_much()
 /*
  * see if a user is an author of the program
  */
-void author()
+bool author()
 {
     switch (md_getuid())
     {
@@ -386,8 +386,6 @@ void author()
 	    return FALSE;
     }
 }
-
-int chmsg(char *fmt, ...);
 
 void checkout(int p)
 {

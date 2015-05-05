@@ -13,6 +13,11 @@
 #include "curses.h"
 #include "rogue.h"
 
+void horiz(int cnt);
+void vert(int cnt);
+void rnd_pos(struct room* rp, coord* cp);
+void draw_room(struct room* rp);
+
 void do_rooms()
 {
     int i;
@@ -156,7 +161,7 @@ void horiz(int cnt)
  *	draw a vertical line
  */
 
-void ert(int cnt)
+void vert(int cnt)
 {
     int x, y;
 

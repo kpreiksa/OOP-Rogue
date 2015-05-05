@@ -17,9 +17,9 @@
 #include "rogue.h"
 
 
-char* inv_name(struct object*, bool);
-int money();
-int drop();
+char* inv_name(struct object* obj, bool drop);
+void money();
+void drop();
 int dropcheck(struct object*);
 struct linked_list* new_thing();
 int pick_one(struct magic_item*, int);
@@ -146,7 +146,7 @@ char* inv_name(struct object* obj, bool drop)
  * money:
  *	Add to characters purse
  */
-int money()
+void money()
 {
     struct room *rp;
 
@@ -172,7 +172,7 @@ int money()
  * drop:
  *	put something down
  */
-int drop()
+void drop()
 {
     char ch;
     struct linked_list *obj, *nobj;

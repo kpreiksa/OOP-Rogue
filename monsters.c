@@ -25,7 +25,7 @@ char randmonster(bool wander);
 void new_monster(struct linked_list* item, char type, coord* cp);
 void wanderer();
 struct linked_list* wake_monster(int y, int x);
-return genocide();
+void genocide();
 
 /*
  * randmonster:
@@ -201,7 +201,7 @@ struct linked_list* wake_monster(int y, int x)
     return it;
 }
 
-return genocide()
+void genocide()
 {
     struct linked_list *ip;
     struct thing *mp;

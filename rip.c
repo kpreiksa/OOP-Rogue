@@ -21,6 +21,8 @@
 #include "machdep.h"
 #include "rogue.h"
 
+void score(int amount,int flags, char monst);
+
 static char *rip[] = {
 "                       __________",
 "                      /          \\",
@@ -38,7 +40,7 @@ static char *rip[] = {
     0
 };
 
-char* killname();
+char* killname(char monst);
 
 /*
  * death:
@@ -78,7 +80,7 @@ void death(char monst)
  */
 
 /* VARARGS2 */
-void score(amount, flags, char monst)
+void score(int amount,int flags, char monst)
 {
     static struct sc_ent {
 	int sc_score;
@@ -156,9 +158,7 @@ void score(amount, flags, char monst)
 	    encread((char *) &top_ten[i].sc_name, 80, fd);
 	    encread((char *) &top_ten[i].sc_login, 8, fd);
 	    encread((char *) scoreline, 100, fd);
-	    sscanf(scoreline, " %d %d %d %d \n",
-		&top_ten[i].sc_score,  &top_ten[i].sc_flags,
-		&top_ten[i].sc_level,  &top_ten[i].sc_monster);
+	    sscanf(scoreline, " %d %d %d %d \n",&top_ten[i].sc_score, &top_ten[i].sc_flags, &top_ten[i].sc_level,  &top_ten[i].sc_monster);
 	}
 
     /*

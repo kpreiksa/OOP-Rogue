@@ -15,7 +15,7 @@
 #include <string.h>
 #include "rogue.h"
 
-int ring_on()
+void ring_on()
 {
     struct object *obj;
     struct linked_list *item;
@@ -103,7 +103,7 @@ int ring_on()
     }
 }
 
-int ring_off()
+void ring_off()
 {
     int ring;
     struct object *obj;
