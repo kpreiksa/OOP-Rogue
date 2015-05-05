@@ -13,6 +13,8 @@
 #include "curses.h"
 #include "rogue.h"
 
+void door(struct room* rm, coord* cp); 
+void conn(int r1, int r2);
 /*
  * do_passages:
  *	Draw all the passages on a level.
