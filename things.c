@@ -17,7 +17,7 @@
 #include "rogue.h"
 
 
-char* inv_name(struct object*, bool);
+char* inv_name(struct object* obj, bool drop);
 int money();
 int drop();
 int dropcheck(struct object*);

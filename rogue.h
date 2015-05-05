@@ -504,7 +504,9 @@ struct linked_list *new_thing(), *wake_monster();
 
 char *tr_name(char ch);
 char *new();
-char *charge_str(),*vowelstr(), *inv_name();
+char *charge_str();
+char *vowelstr();
+char* inv_name(struct object* obj, bool drop);
 char *ctime(), *num(), *ring_num();
 
 struct room *roomin();

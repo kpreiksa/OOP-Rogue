@@ -245,7 +245,7 @@ int encwrite(void* starta,unsigned int size, FILE* outf)
 /*
  * perform an encrypted read
  */
-encread(void* starta, unsigned int size, int inf)
+int encread(void* starta, unsigned int size, int inf)
 {
     char *ep;
     int read_size;
