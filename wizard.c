@@ -17,7 +17,7 @@
 #include <string.h>
 #include "rogue.h"
 
-int whatis();
+void whatis();
 void create_obj();
 int teleport();
 int passwd();
@@ -27,7 +27,7 @@ int passwd();
  *	What a certin object is
  */
 
-int whatis()
+void whatis()
 {
     struct object *obj;
     struct linked_list *item;

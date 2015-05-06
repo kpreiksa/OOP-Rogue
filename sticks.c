@@ -17,8 +17,8 @@
 #include "rogue.h"
 
 void fix_stick(struct object*);
-int do_zap(bool);
-int drain(int, int, int, int);
+void do_zap(bool);
+void drain(int, int, int, int);
 char* charge_str(struct object*);
 
 void fix_stick(struct object* cur)
@@ -41,7 +41,7 @@ void fix_stick(struct object* cur)
     }
 }
 
-int do_zap(bool gotdir)
+void do_zap(bool gotdir)
 {
     struct linked_list *item;
     struct object *obj;
@@ -346,7 +346,7 @@ int do_zap(bool gotdir)
  *	Do drain hit points from player shtick
  */
 
-int drain(int ymin, int ymax, int xmin, int xmax)
+void drain(int ymin, int ymax, int xmin, int xmax)
 {
     int i, j, count;
     struct thing *ick;

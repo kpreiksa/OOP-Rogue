@@ -155,7 +155,7 @@ int find_thing_coord(struct linked_list*, coord*);
 int find_object_coord(struct linked_list*, coord*);
 int rs_write_thing(FILE*, struct thing*);
 int rs_read_thing(int, struct thing*);
-int rs_fix_thing(struct thing*);
+void rs_fix_thing(struct thing*);
 int rs_write_thing_list(FILE*, struct linked_list*);
 int rs_read_thing_list(int, struct linked_list**);
 int rs_fix_thing_list(struct linked_list*);
@@ -1826,7 +1826,7 @@ int rs_read_thing(int inf, struct thing *t)
     return(READSTAT);
 }
 
-int rs_fix_thing(struct thing *t)
+void rs_fix_thing(struct thing *t)
 {
     struct linked_list *item;
     struct thing *tp;

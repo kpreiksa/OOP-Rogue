@@ -17,13 +17,13 @@
 
 #define NONE 100
 
-int missile(int, int);
+void missile(int, int);
 void do_motion(struct object*, int, int);
-int fall(struct linked_list*, bool);
+void fall(struct linked_list*, bool);
 void init_weapon(struct object*, char);
 int hit_monster(int, int, struct object*);
 char* num(int, int);
-int wield();
+void wield();
 int fallpos(coord*, coord*, bool);
 
 char *w_names[MAXWEAPONS] = {
@@ -66,7 +66,7 @@ static struct init_weps {
  *	Fire a missile in a given direction
  */
 
-int missile(int ydelta, int xdelta)
+void missile(int ydelta, int xdelta)
 {
     struct object *obj;
     struct linked_list *item, *nitem;
@@ -160,7 +160,7 @@ void do_motion(struct object* obj, int ydelta, int xdelta)
  *	Drop an item someplace around here.
  */
 
-int fall(struct linked_list* item, bool pr)
+void fall(struct linked_list* item, bool pr)
 {
     struct object *obj;
     struct room *rp;
@@ -247,7 +247,7 @@ char* num(int n1, int n2)
  *	Pull out a certain weapon
  */
 
-int wield()
+void wield()
 {
     struct linked_list *item;
     struct object *obj, *oweapon;
